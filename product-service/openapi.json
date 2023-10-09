@@ -1,0 +1,30 @@
+{
+    "openapi": "3.0.0",
+    "components": {
+        "schemas": {},
+        "securitySchemes": {}
+    },
+    "info": {
+        "title": "My API",
+        "description": "This is my API",
+        "version": "1"
+    },
+    "paths": {
+        "//products": {
+            "get": {
+                "operationId": "getProductsList",
+                "summary": "Get Products",
+                "description": "Returns all products",
+                "responses": {}
+            }
+        },
+        "//products/{id}": {
+            "get": {
+                "operationId": "getProductById",
+                "summary": "Get Product",
+                "description": "Returns products by id",
+                "responses": {}
+            }
+        }
+    }
+}
