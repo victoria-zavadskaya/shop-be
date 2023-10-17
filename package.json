@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+        "http-status": "^1.7.0",
+        "http-status-codes": "^2.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}
