@@ -6,18 +6,20 @@ type ValidatedAPIGatewayProxyEvent<S> = Omit<APIGatewayProxyEvent, 'body'> & { b
 
 export type ValidatedEventAPIGatewayProxyEvent<S> = Handler<ValidatedAPIGatewayProxyEvent<S>, APIGatewayProxyResult>;
 
-export function formatJSONSuccessResponse(response: any): APIGatewayProxyResult {
+export function formatJSONSuccessResponse(response: any = ''): APIGatewayProxyResult {
     return {
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        isBase64Encoded: true,
+        headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
         statusCode: StatusCodes.OK,
         body: JSON.stringify(response),
     }
 }
 
-export function formatJSONErrorResponse(message: string): APIGatewayProxyResult {
+export function formatJSONErrorResponse(statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR, body: string = ''): APIGatewayProxyResult {
     return {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        statusCode: StatusCodes.NOT_FOUND,
-        body: JSON.stringify({ message }),
+        isBase64Encoded: true,
+        headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+        statusCode,
+        body,
     }
 }
