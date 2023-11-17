@@ -19,6 +19,7 @@ const serverlessConfiguration: AWS = {
             AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
             NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
             PRODUCTS_QUEUE_URL: 'https://sqs.eu-west-1.amazonaws.com/024936853146/create-product-queue',
+            AUTH_FUNCTION: 'arn:aws:lambda:eu-west-1:024936853146:function:authorization-service-dev-basicAuthorizer'
         },
         iamRoleStatements: [
             {
@@ -35,8 +36,8 @@ const serverlessConfiguration: AWS = {
                 Effect: 'Allow',
                 Action: ['sqs:*'],
                 Resource: ['arn:aws:sqs:eu-west-1:024936853146:create-product-queue']
-            } 
-        ]
+            },
+        ],
     },
     functions: { importProductFile, importFileParser },
     package: { individually: true },
