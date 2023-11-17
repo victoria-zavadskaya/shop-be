@@ -7,14 +7,18 @@ export default {
             http: {
                 method: 'get',
                 path: '/import',
-                cors: true,
+                cors: {
+                    origin: '*',
+                    headers: ['Authorization', 'Access-Control-Allow-Origin']
+                },
                 request: {
                     parameters: {
                         querystrings: {
                             name: true
                         }
                     } 
-                }
+                },
+                authorizer: process.env.AUTH_FUNCTION_ARN
             }
         },
     ],
