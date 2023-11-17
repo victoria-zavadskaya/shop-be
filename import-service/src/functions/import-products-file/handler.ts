@@ -13,7 +13,7 @@ async function importProductFile(event: APIGatewayProxyEvent): Promise<APIGatewa
     
     const command = new GetObjectCommand({
         Bucket: 'import-service-bucket-888',
-        Key: `uploaded/${fileName}.csv`
+        Key: `uploaded/${fileName}`
     });
 
     const url = await getSignedUrl(s3Client, command, { expiresIn: URL_EXPIRE_TIME });

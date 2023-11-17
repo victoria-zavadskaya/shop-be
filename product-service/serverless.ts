@@ -44,7 +44,21 @@ const serverlessConfiguration: AWS = {
                     'dynamodb:DeleteItem',
                     'dynamodb:BatchWriteItem'
                 ],
-                Resource: 'arn:aws:dynamodb:eu-west-1:024936853146:table/products'
+                Resource: 'arn:aws:dynamodb:eu-west-1:024936853146:table/products',
+            },
+            { 
+                Effect: 'Allow',
+                Action: [
+                    'dynamodb:DescribeTable',
+                    'dynamodb:Query',
+                    'dynamodb:Scan',
+                    'dynamodb:GetItem',
+                    'dynamodb:PutItem',
+                    'dynamodb:UpdateItem',
+                    'dynamodb:DeleteItem',
+                    'dynamodb:BatchWriteItem'
+                ],
+                Resource: 'arn:aws:dynamodb:eu-west-1:024936853146:table/stocks',
             }
         ],
     },
