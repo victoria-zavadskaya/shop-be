@@ -18,7 +18,7 @@ export default {
                         }
                     } 
                 },
-                authorizer: process.env.AUTH_FUNCTION_ARN
+                authorizer: process.env.AUTH_FUNCTION
             }
         },
     ],
